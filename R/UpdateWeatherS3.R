@@ -1,3 +1,5 @@
+#! /usr/local/bin/Rscript
+
 # UpdateWeatherS3.R
 
 # Gets data from Wunderground and writes it to an RDS stored in S3
@@ -71,3 +73,5 @@ s3saveRDS(x = obs_df,
           object =  "weather_station_obs.RDS",
           bucket = "randre-weather-data",
           compress = TRUE)
+
+system("echo `date` >> /home/randre/Code/weather_update.log")
