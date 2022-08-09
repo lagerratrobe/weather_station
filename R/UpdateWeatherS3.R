@@ -55,7 +55,7 @@ GetWeather <- function(
 # get_bucket("randre-weather-data")
 
 # Read the existing RDS out of S3
-obs_df <- s3readRDS(object = "weather_station_obs.RDS", 
+obs_df <- s3readRDS(object = "weather_obs.RDS", 
                     bucket = "randre-weather-data")
 
 # Stations of interest
@@ -66,12 +66,23 @@ stations <- c('KTXDALLA724', 'KWASEATT2743', 'KWASEQUI431')
 
 # Get a weather reading for each station and add it to the obs_df
 for (id in stations) {
-  obs_df <- rbind(obs_df, GetWeather(id))
+  station_obs <- GetWeather(id)
+  weather_obs <- station_obs %>%
+    select(-c(obsTimeUtc, 
+              neighborhood, 
+              softwareType, 
+              country,
+              lon,
+              lat,
+              realtimeFrequency,
+              qcStatus)
+    )
+  obs_df <- rbind(obs_df, weather_obs)
 }
 
 # Save the updated RDS
 s3saveRDS(x = obs_df, 
-          object =  "weather_station_obs.RDS",
+          object =  "weather_obs.RDS",
           bucket = "randre-weather-data",
           compress = TRUE)
 
