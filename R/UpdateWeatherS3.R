@@ -61,7 +61,8 @@ obs_df <- s3readRDS(object = "weather_station_obs.RDS",
 # Stations of interest
 # 'KTXDALLA724' = Dallas, TX
 # 'KWASEATT2743' = Seattle, WA (my house)
-stations <- c('KTXDALLA724', 'KWASEATT2743')
+# 'KWASEQUI431' = Sequim
+stations <- c('KTXDALLA724', 'KWASEATT2743', 'KWASEQUI431')
 
 # Get a weather reading for each station and add it to the obs_df
 for (id in stations) {
