@@ -1,13 +1,15 @@
+#! /usr/local/bin/Rscript
+
 # UpdateStationObs.R
 
 # Grabs the current weather obs and appends them to the running list
 
 library(dplyr)
 
-source("./R/GetWeatherData.R")
+source("/home/randre/Code/weather_station/R/GetWeatherData.R")
 
 # Running set of obs
-data_obs <- readRDS("Data/station_obs.RDS")
+data_obs <- readRDS("/home/randre/Code/weather_station/Data/station_obs.RDS")
 
 # Stations to pull data for
 stations <- c('KTXDALLA724', 'KWASEATT2743', 'KWASEQUI431')
@@ -25,6 +27,6 @@ for (id in stations) {
   data_obs <- rbind(data_obs, current)
 }
 
-saveRDS(data_obs, "Data/station_obs.RDS")
+saveRDS(data_obs, "/home/randre/Code/weather_station/Data/station_obs.RDS")
 
 system("echo `date` >> /home/randre/Code/weather_update.log")
