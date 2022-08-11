@@ -1,9 +1,8 @@
 #! /usr/bin/python3
 
-import os
 import git
 
-repo = git.Repo(os.getcwd())
+repo = git.Repo("/home/randre/Code/weather_station")
 
 repo.git.add("/home/randre/Code/weather_station/Data/station_obs.RDS")
 
