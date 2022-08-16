@@ -1,0 +1,8 @@
+file: Weather Obs.arrow
+file_size: 51538
+pin_hash: 90a40048c0464d6f
+type: arrow
+title: 'Weather Obs: a pinned 836 x 19 data frame'
+description: ~
+created: 20220816T174317Z
+api_version: 1.0
