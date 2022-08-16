@@ -5,6 +5,7 @@
 # Grabs the current weather obs and appends them to the running list
 
 library(dplyr)
+library(data.table)
 
 source("/home/randre/Code/weather_station/R/GetWeatherData.R")
 
@@ -28,5 +29,6 @@ for (id in stations) {
 }
 
 saveRDS(data_obs, "/home/randre/Code/weather_station/Data/station_obs.RDS")
+fwrite(data_obs, "/home/randre/Code/weather_station/Data/station_obs.CSV") 
 
 system("echo `date` >> /home/randre/Code/weather_update.log")

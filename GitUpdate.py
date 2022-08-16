@@ -4,7 +4,7 @@ import git
 
 repo = git.Repo("/home/randre/Code/weather_station")
 
-repo.git.add("/home/randre/Code/weather_station/Data/station_obs.RDS")
+repo.git.add("/home/randre/Code/weather_station/Data/station_obs.*")
 
 repo.git.commit('-m', 'Updated weather obs with latest hourly reading.')
 
