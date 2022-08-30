@@ -29,6 +29,5 @@ for (id in stations) {
 }
 
 saveRDS(data_obs, "/home/randre/Code/weather_station/Data/station_obs.RDS")
-fwrite(data_obs, "/home/randre/Code/weather_station/Data/station_obs.CSV") 
 
 system("echo `date` >> /home/randre/Code/weather_update.log")
