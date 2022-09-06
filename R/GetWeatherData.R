@@ -53,7 +53,5 @@ GetWeatherData <- function(
     observations <- response_data$observations
   }
   
-  return(observations)
-  
 }
 
