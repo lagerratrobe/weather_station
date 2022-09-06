@@ -17,17 +17,19 @@ stations <- c('FOOXYZ123', 'KTXDALLA724', 'KWASEATT2743', 'KWASEQUI431', 'ISTROU
 
 # Pull the current obs for each station and append it to the running list
 for (id in stations) {
-  current <- GetWeatherData(station_id = id, obs_type = "current") 
-  if ( isTRUE(current) ) {
-    select(current, -c(neighborhood,
-              softwareType,
-              country,
-              realtimeFrequency,
-              qcStatus,
-              imperial.elev)
-          ) -> current
-  data_obs <- rbind(data_obs, current)
-  } else {}
+  current <- GetWeatherData(station_id = id, obs_type = "current")
+  if (!is.null(current)) {
+    data_obs <- rbind(data_obs,
+                      select(current, 
+                             -c(neighborhood,
+                                softwareType,
+                                country,
+                                realtimeFrequency,
+                                qcStatus,
+                                imperial.elev)
+                      )
+    )
+  }
 }
 
 saveRDS(data_obs, "/home/randre/Code/weather_station/Data/station_obs.RDS")
