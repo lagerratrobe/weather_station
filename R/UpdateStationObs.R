@@ -13,7 +13,7 @@ source("/home/randre/Code/weather_station/R/GetWeatherData.R")
 data_obs <- readRDS("/home/randre/Code/weather_station/Data/station_obs.RDS")
 
 # Stations to pull data for
-stations <- c('KTXHOUST3150', 'KTXDALLA724', 'KWASEATT2743', 'KWASEQUI431', 'ISTROU34', 'IWESTMOU2', 'KNYALBAN124')
+stations <- c('KTXHOUST3150', 'KTXDALLA724', 'KWASEATT2743', 'KWASEQUI431', 'ISTROU34', 'IWESTMOU2', 'KNYALBAN124', 'KTNANTIO26')
 
 # Pull the current obs for each station and append it to the running list
 for (id in stations) {
